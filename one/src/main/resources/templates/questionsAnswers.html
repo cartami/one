@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>The ONE API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+<div align="center">
+        <h1 >Select which LOTR character said the quote</h1>
+
+    <form th:action="@{/quiz}" th:object="${score}" method="post">
+        <table class="table-primary">
+            <tr>
+                <th th:each="question : ${allQuestions}"></th>
+            </tr>
+            <tr th:each="question : ${allQuestions}">
+                <td th:text="${question.quoteQuestion}"></td>
+                <td>
+                    <select th:field="*{choice}" class="form-select form-select-sm" aria-label="Default select">
+                        <option th:each="choice : ${allChoices}" th:value="${choice}" th:text="${choice}" />
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Save">
+    </form>
+
+</div>
+</body>
+</html>

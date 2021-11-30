@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>One API application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<h1>One API application</h1>
+<p>This application lists all the Chapter Names from The One API</p>
+
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Book</th>
+        <th>Chapter Name</th>
+    </tr>
+    <tr th:each="allChapterName : ${allChapterNames}">
+        <td th:text="${allChapterName._id}"></td>
+        <td th:text="${allChapterName.book}"></td>
+        <td th:text="${allChapterName.chapterName}"></td>
+    </tr>
+</table>
+
+</body>
+
+</html>
